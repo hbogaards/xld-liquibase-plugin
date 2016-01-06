@@ -54,8 +54,6 @@ operation = str(delta.operation)
 
 if operation == "CREATE":
     handle_create(deployed, context)
-elif operation == "DESTROY":
-    handle_destroy(previousDeployed, context)
 elif operation == "MODIFY":
     handle_modify(previousDeployed, deployed, context)
 
