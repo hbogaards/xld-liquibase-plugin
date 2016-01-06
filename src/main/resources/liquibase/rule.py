@@ -4,6 +4,8 @@
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
 
+from distutils.version import LooseVersion
+
 DESTROY_RESOURCES = 40
 CREATE_RESOURCES = 60
 
@@ -38,7 +40,7 @@ def handle_destroy(d, ctx):
     ctx.addStep(step)
 
 def handle_modify(pd, d, ctx):
-    if d.rollbackVersion < pd.rollbackVersion:
+    if LooseVersion(d.rollbackVersion) < LooseVersion(pd.rollbackVersion):
         step = steps.jython(description="Rollback to tag [v%s] in liquibase [%s]" % (d.rollbackVersion, d.container.name),
                             order=DESTROY_RESOURCES,
                             script='liquibase/apply_rollback.py',

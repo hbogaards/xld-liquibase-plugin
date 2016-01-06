@@ -11,7 +11,7 @@
     <type type="liquibase.ExecutedChangelog" extends="udm.BaseDeployedArtifact" deployable-type="liquibase.Changelog" container-type="liquibase.Runner" description="Executed liquibase changelog">
 		<generate-deployable type="liquibase.Changelog" extends="udm.BaseDeployableFolderArtifact" />
 		<property name="changeLogFile"/>
-		<property name="rollbackVersion" kind="integer"/>
+		<property name="rollbackVersion" />
 		<property name="baseRollbackTag" default="xld_liquibase_base_version" hidden="true"/>
     </type>
 
